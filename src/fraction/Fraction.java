@@ -38,6 +38,12 @@ public class Fraction {
             }
             return uocChung;
         }
+        void ngichDao(){
+            int tg = tuSo;
+            tuSo = mauSo;
+            mauSo = tg;
+
+        }
 
         void rutGon(){
             System.out.println((getTuSo()/uocChung())+"/"+(getMauSo()/uocChung()));
@@ -55,6 +61,11 @@ public class Fraction {
 
         void div(Fraction ps){
             System.out.println(getTuSo()* ps.getMauSo()+"/"+getMauSo()* ps.getTuSo());
+        }
+
+
+        void mul(Fraction ps) {
+            System.out.println(getTuSo()* ps.getTuSo()+"/"+getMauSo() * ps.getMauSo());
         }
 
 

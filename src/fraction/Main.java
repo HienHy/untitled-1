@@ -3,15 +3,20 @@ package fraction;
 
     public class Main {
         public static void main(String[] args){
-            Fraction f = new Fraction(5,15);
-            Fraction f1 = new Fraction(5,6);
+            Fraction p = new Fraction(5,15);
+            Fraction ps = new Fraction(5,6);
 
-            f.printPhanSo();
-            f.rutGon();
-            f.add(f1);
-            f.sub(f1);
-            f.div(f1);
+            p.printPhanSo();
+            p.rutGon();
+            p.ngichDao();
+            p.printPhanSo();
+            p.add(ps);
+            p.sub(ps);
+            p.div(ps);
+            p.mul(ps);
         }
+
+
 
     }
 

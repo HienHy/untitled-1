@@ -60,6 +60,7 @@ public class Account {
     public Account transTo(Account a2,int amount){
         if(this.balance > amount){
             a2.balance += amount;
+            this.balance -=amount;
         }else {
             System.out.println("Chuyển tiền không thành công");
         }

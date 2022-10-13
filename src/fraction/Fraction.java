@@ -41,8 +41,10 @@ public class Fraction {
 
     void ngichDao() {
         int tg = tuSo;
+        if(tg !=0){
         tuSo = mauSo;
         mauSo = tg;
+        }
 
     }
 
@@ -53,6 +55,7 @@ public class Fraction {
     void add(Fraction ps) {
         int ts = getTuSo() * ps.getMauSo() + getMauSo() * ps.getTuSo();
         int ms = getMauSo() * ps.getMauSo();
+
         System.out.println(ts + "/" + ms);
     }
 

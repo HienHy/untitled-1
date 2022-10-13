@@ -4,7 +4,9 @@ public class Fraction {
 
     int tuSo;
     int mauSo;
-    int uocChung;
+
+    public Fraction() {
+    }
 
     public int getTuSo() {
         return tuSo;
@@ -25,51 +27,68 @@ public class Fraction {
     public Fraction(int tuSo, int mauSo) {
         this.tuSo = tuSo;
         this.mauSo = mauSo;
+        this.rutGon();
     }
 
-    void printPhanSo() {
+   public void printPhanSo() {
         System.out.println(getTuSo() + "/" + getMauSo());
     }
 
-    int uocChung() {
-        for (int i = 1; i <= tuSo && i <= mauSo; i++) {
-            if (tuSo % i == 0 && mauSo % i == 0)
-                uocChung = i;
-        }
-        return uocChung;
-    }
 
-    void ngichDao() {
-        int tg = tuSo;
+
+    public void ngichDao() {
+        int tg = getTuSo();
         if(tg !=0){
-        tuSo = mauSo;
-        mauSo = tg;
+        setTuSo(mauSo);
+        setMauSo(tg);
         }
 
     }
 
-    void rutGon() {
-        System.out.println((getTuSo() / uocChung()) + "/" + (getMauSo() / uocChung()));
+   public void rutGon() {
+        int ucln = 1;
+
+        for (int i =Math.abs(getTuSo());i>1;i--){
+            if(tuSo%i==0 && mauSo %i ==0){
+                ucln = i;
+                break;
+            }
+        }
+
+        setTuSo(tuSo/ucln);
+        setMauSo(mauSo/ucln);
+
+
     }
 
-    void add(Fraction ps) {
-        int ts = getTuSo() * ps.getMauSo() + getMauSo() * ps.getTuSo();
-        int ms = getMauSo() * ps.getMauSo();
+    public Fraction add(Fraction ps) {
+        Fraction t = new Fraction();
+        t.setMauSo(this.getMauSo()* ps.getMauSo());
+        t.setTuSo(this.getTuSo()*ps.getMauSo() + this.getMauSo()*ps.getTuSo());
+        t.rutGon();
+        return t;
 
-        System.out.println(ts + "/" + ms);
+
     }
 
-    void sub(Fraction ps) {
-        System.out.println(getTuSo() * ps.getTuSo() + "/" + getMauSo() * ps.getMauSo());
+    public Fraction sub(Fraction ps) {
+        int ts = this.getTuSo()* ps.getMauSo() - this.getMauSo()*ps.getTuSo();
+        int ms = this.getMauSo()* ps.getMauSo();
+        Fraction mb = new Fraction(ts,ms);
+        return mb;
+
+
+
     }
 
-    void div(Fraction ps) {
-        System.out.println(getTuSo() * ps.getMauSo() + "/" + getMauSo() * ps.getTuSo());
+    public Fraction mul(Fraction ps) {
+       return new Fraction (getTuSo() * ps.getMauSo(),getMauSo() * ps.getTuSo());
     }
 
 
-    void mul(Fraction ps) {
-        System.out.println(getTuSo() * ps.getTuSo() + "/" + getMauSo() * ps.getMauSo());
+    public Fraction div(Fraction ps) {
+        ps.ngichDao();
+        return this.mul(ps);
     }
 
 

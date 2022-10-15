@@ -33,7 +33,8 @@ public class Main {
 
         System.out.println("Dien tich bang = " + t.Dientich());
         System.out.println("DChu vi bang =" + t.ChuVi());
-
+        HinhTron a = new HinhTron(4);
+        System.out.println(a.chuVi());
 
     }
 }

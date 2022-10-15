@@ -1,9 +1,10 @@
 package bank;
 
 public class Account {
-    String id;
-    String name;
-    int balance;
+
+   public String id;
+   public String name;
+   public Integer balance;
 
     public String getId() {
         return id;
@@ -25,7 +26,7 @@ public class Account {
         return balance;
     }
 
-    public void setBalance(int balance) {
+    public void setBalance(Integer balance) {
         this.balance = balance;
     }
 
@@ -34,22 +35,24 @@ public class Account {
     public Account() {
     }
 
-    public Account(String id, String name, int balance) {
+    public Account(String id, String name, Integer balance) {
         this.id = id;
         this.name = name;
         this.balance = balance;
     }
 
     public void credit(int amount) {
-        if (amount > 0) {
-          int a=this.balance += amount;
-          this.balance= a;
-        }
+        setBalance(getBalance()+(amount > 0 ?amount:0));
+
+//        if (amount > 0) {
+//          int a=this.balance += amount;
+//          this.balance= a;
+//        }
 
     }
 
     public void debit(int amount){
-        if(amount >0 && amount < this.balance){
+        if(amount >0 && amount <= this.balance){
           int a =  this.balance -= amount;
             this.balance = a;
         } else {

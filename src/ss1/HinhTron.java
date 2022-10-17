@@ -1,7 +1,7 @@
 package ss1;
 
 public class HinhTron {
-    double r;
+    public double r;
 
     public HinhTron() {
     }
@@ -22,7 +22,7 @@ public class HinhTron {
         return chuVi;
 
    }
-   public double dienTich(){
+   public double dienTichHt(){
         double dienTich = Math.PI * Math.pow(this.r, 2);
         return dienTich;
    }

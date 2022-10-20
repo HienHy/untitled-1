@@ -1,10 +1,11 @@
 package phone_;
 
 import java.util.ArrayList;
-import java.util.IllegalFormatCodePointException;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class PhoneBook extends Phone{
-//    ArrayList<String> PhoneList = new ArrayList<>();
 ArrayList<PhoneNumber> phoneList = new ArrayList<>();
 
     public ArrayList<PhoneNumber> getPhoneList() {
@@ -13,67 +14,70 @@ ArrayList<PhoneNumber> phoneList = new ArrayList<>();
 
     @Override
     public void insertPhone(String name, String phone) {
-        for (PhoneNumber p: getPhoneList()
-             )if (p.getName().equals(name)){
+        for (PhoneNumber p: getPhoneList()){
+            if (p.getName().equals(name)){
             for (String s: p.getTel()
-                 ){
+                 ){if (s.equals(phone)){
+                     return;
+                }
 
             }
+            p.getTel().add(phone);
+            return;
 
         }
-//        if (PhoneList.isEmpty()) {
-//            PhoneList.add(name + "," + phone);
 //
-//        } else {
-//            boolean check = false;
-//            for (String i : PhoneList) {
-//                if(i.contains(name +',')){
-//                    check  =   true;
-//                    if(!i.contains(phone)){
-//                        PhoneList.set(PhoneList.indexOf(i),i+":"+phone);
-//                    }
-//                    break;
-//                }
-//            }
-//            if (!check){
-//                PhoneList.add(name+","+phone);
-//            }
-//        }
+//
      }
+     PhoneNumber pn = new PhoneNumber(name,phone);
+        getPhoneList().add(pn);
+    }
 
         @Override
         public void removePhone (String name){
-            for (PhoneNumber p : getPhoneList()
-                 ) {
+            for (PhoneNumber p : getPhoneList()) {
+                if (p.getName().equals(name)){
+                    getPhoneList().remove(p);
+                    return;
+
+                }
 
             }
-//            for (String i: PhoneList
-//                 )if (i.contains(name+",")){
-//                PhoneList.remove(i);
-//                break;
-//
-//            }
+
 
         }
 
         @Override
         public void updatePhone (String name, String oldPhone, String newPhone){
-//            for (String i : PhoneList) {
-//                if (i.contains(name + ",")) {
-//
-//                    PhoneList.set(PhoneList.indexOf(i),name + ", "+newPhone);
-//                    break;
-//                }
-//            }
+           for (PhoneNumber p : getPhoneList()){
+               if (p.getName().equals(name)){
+                   p.getTel().remove(oldPhone);
+                   p.getTel().add(newPhone);
+                   return;
+               }
+           }
         }
 
         @Override
-        public void searchPhone (String name){
+        public PhoneNumber searchPhone (String name){
+        for (PhoneNumber p : getPhoneList()){
+            if (p.getName().equals(name)){
+                return p;
+            }
+        }
+        return null;
 
         }
 
         @Override
         public void sort () {
+            Collections.sort(getPhoneList(), new Comparator<PhoneNumber>() {
+                @Override
+                public int compare(PhoneNumber o1, PhoneNumber o2) {
+                    return o1.getName().compareTo(o2.getName());
+                }
+            });
+
 
 
 

@@ -7,7 +7,7 @@ public abstract class Phone {
 
         public abstract void updatePhone(String name,String oldPhone, String newPhone);
 
-        public abstract void searchPhone(String name);
+        public abstract PhoneNumber searchPhone(String name);
 
         public abstract void sort();
 }

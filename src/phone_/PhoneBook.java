@@ -19,25 +19,39 @@ public class PhoneBook extends Phone{
             boolean check = false;
             for (String i : PhoneList) {
                 if(i.contains(name +',')){
-
+                    check  =   true;
+                    if(!i.contains(phone)){
+                        PhoneList.set(PhoneList.indexOf(i),i+":"+phone);
+                    }
+                    break;
                 }
-
-
-
             }
-
-
+            if (!check){
+                PhoneList.add(name+","+phone);
+            }
         }
      }
 
         @Override
         public void removePhone (String name){
+            for (String i: PhoneList
+                 )if (i.contains(name+",")){
+                PhoneList.remove(i);
+                break;
+
+            }
 
         }
 
         @Override
         public void updatePhone (String name, String oldPhone, String newPhone){
+            for (String i : PhoneList) {
+                if (i.contains(name + ",")) {
 
+                    PhoneList.set(PhoneList.indexOf(i),name + ", "+newPhone);
+                    break;
+                }
+            }
         }
 
         @Override

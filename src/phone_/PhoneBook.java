@@ -16,8 +16,9 @@ ArrayList<PhoneNumber> phoneList = new ArrayList<>();
     public void insertPhone(String name, String phone) {
         for (PhoneNumber p: getPhoneList()){
             if (p.getName().equals(name)){
-            for (String s: p.getTel()
-                 ){if (s.equals(phone)){
+            for (String s: p.getTel()){
+                if (s.equals(phone))
+                {
                      return;
                 }
 

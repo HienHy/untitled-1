@@ -15,7 +15,6 @@ public class Student {
         this.phoneNumber = phoneNumber;
     }
     public String toString(){
-
         return this.name+"\t"+this.email+"\t"+this.address+"\t"+this.age+"\t"+this.phoneNumber+"\n";
     }
 }

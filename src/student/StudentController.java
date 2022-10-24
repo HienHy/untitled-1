@@ -29,6 +29,7 @@ public class StudentController {
         String age = Age.getText();
 
         String phoneNumber = PhoneNumber.getText();
+
         Student ct = new Student(name,email,address,age,phoneNumber);
         ls.add(ct);
         print();
@@ -36,6 +37,7 @@ public class StudentController {
 
     }
     public void print(){
+        
         lv.setItems(ls);
     }
 

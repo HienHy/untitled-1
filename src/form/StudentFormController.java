@@ -72,6 +72,7 @@ public class StudentFormController {
 
     public void print(){
 
+        
         lv.setItems(ls);
     }
 

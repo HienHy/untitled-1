@@ -5,14 +5,16 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
-<Pane fx:controller="javafx.create.CreateController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.create.CreateController">
    <children>
-      <Button onAction="#backTolist" layoutX="37.0" layoutY="33.0" mnemonicParsing="false" text="&lt;&lt;back" />
-      <Text layoutX="222.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="create a Student" />
-      <TextField layoutX="151.0" layoutY="81.0" promptText="name" />
-      <TextField layoutX="151.0" layoutY="155.0" promptText="email" />
-      <TextField layoutX="151.0" layoutY="217.0" promptText="adress" />
-      <Button layoutX="195.0" layoutY="281.0" mnemonicParsing="false" text="submit" />
+      <Button layoutX="37.0" layoutY="33.0" mnemonicParsing="false" onAction="#backToList" text="&lt;&lt;Back" />
+      <Text layoutX="207.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create a Student" wrappingWidth="192.8876953125">
+         <font>
+            <Font size="24.0" />
+         </font></Text>
+      <TextField fx:id="txtName" layoutX="151.0" layoutY="81.0" prefHeight="48.0" prefWidth="304.0" promptText="Name" />
+      <TextField fx:id="txtEmail" layoutX="151.0" layoutY="155.0" prefHeight="48.0" prefWidth="304.0" promptText="Email" />
+      <TextField fx:id="txtMark" layoutX="151.0" layoutY="235.0" prefHeight="48.0" prefWidth="304.0" promptText="Mark" />
+      <Button layoutX="219.0" layoutY="325.0" mnemonicParsing="false" onAction="#submit" prefHeight="38.0" prefWidth="163.0" text="Submit" />
    </children>
 </Pane>

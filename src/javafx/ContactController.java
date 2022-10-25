@@ -18,9 +18,9 @@ import java.util.ResourceBundle;
 
 
 public class ContactController implements Initializable {
-public TextField txtName;
-public ListView<Contact> lv;
-public TextField txtEmail;
+    public TextField txtName;
+    public ListView<Contact> lv;
+    public TextField txtEmail;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -33,12 +33,12 @@ public TextField txtEmail;
     private ObservableList<Contact> ls= FXCollections.observableArrayList();
 
     public void submit(ActionEvent actionEvent) throws IOException {
-        String name = txtName.getText();
+            String name = txtName.getText();
 
-        String email = txtEmail.getText();
-        Contact ct=new Contact(email,name);
-        ls.add(ct);
-        print();
+            String email = txtEmail.getText();
+            Contact ct=new Contact(email,name);
+            ls.add(ct);
+            print();
 
 
     }

@@ -3,6 +3,7 @@ package form;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
@@ -17,6 +18,15 @@ public class StudentFormController {
     public  TextField Mark;
 
     public boolean nameFlg = false;
+    public boolean markFlg = false;
+
+    public boolean isMarkFlg() {
+        return markFlg;
+    }
+
+    public void setMarkFlg() {
+        this.markFlg =!this.nameFlg;
+    }
 
     public boolean isNameFlg() {
         return nameFlg;
@@ -36,7 +46,7 @@ public class StudentFormController {
     public void submit(ActionEvent actionEvent) {
         String name = Name.getText();
         String email = Email.getText();
-        String mark =Mark.getText();
+        Integer mark = Integer.valueOf(Mark.getText());
 
         StudentForm ct = new StudentForm(name,email,mark);
         ls.add(ct);
@@ -59,14 +69,14 @@ public class StudentFormController {
     }
     public void sortByMark(ActionEvent actionEvent) {
         Comparator<StudentForm> studentComparators = Comparator.comparing(StudentForm::getMark);
-        if (this.isNameFlg()) {
+        if (this.isMarkFlg()) {
             ls.sort(studentComparators);
         } else {
             ls.sort(studentComparators.reversed());
 
 
         }
-        this.setNameFlg();
+        this.setMarkFlg();
     }
 
 

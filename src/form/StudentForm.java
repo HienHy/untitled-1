@@ -5,7 +5,7 @@ package form;
 public class StudentForm {
    private String name;
    private String email;
-   private String mark;
+   private Integer mark;
 
     public String getName() {
         return name;
@@ -23,18 +23,18 @@ public class StudentForm {
         this.email = email;
     }
 
-    public String getMark() {
+    public int getMark() {
         return mark;
     }
 
-    public void setMark(String mark) {
+    public void setMark(Integer mark) {
         this.mark = mark;
     }
 
     public StudentForm() {
     }
 
-    public StudentForm(String name, String email, String mark) {
+    public StudentForm(String name, String email, Integer mark) {
         this.name = name;
         this.email = email;
         this.mark = mark;

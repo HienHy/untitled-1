@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane fx:controller="javafx.create.CreateController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button onAction="#backTolist" layoutX="37.0" layoutY="33.0" mnemonicParsing="false" text="&lt;&lt;back" />
+      <Text layoutX="222.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="create a Student" />
+      <TextField layoutX="151.0" layoutY="81.0" promptText="Name" />
+      <TextField layoutX="151.0" layoutY="155.0" promptText="Email" />
+      <TextField layoutX="151.0" layoutY="217.0" promptText="Mark" />
+      <Button onAction="#submit" layoutX="195.0" layoutY="281.0" mnemonicParsing="false" text="submit" />
+   </children>
+</Pane>

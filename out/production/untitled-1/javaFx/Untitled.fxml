@@ -11,6 +11,9 @@
       <TextField fx:id="txtName" layoutX="14.0" layoutY="61.0" promptText="name" text="hien" />
       <TextField fx:id="txtEmail" layoutX="14.0" layoutY="118.0" promptText="email" />
       <Button layoutX="61.0" layoutY="173.0" mnemonicParsing="false" onAction="#submit" text="submit" />
+      <Button layoutX="61.0" layoutY="200.0" mnemonicParsing="false" onAction="#Listview" text="listview" />
+      <Button layoutX="61.0" layoutY="233.0" mnemonicParsing="false" onAction="#form" text="Form" />
+
       <ListView fx:id="lv" layoutX="300.0" layoutY="51.0" prefHeight="200.0" prefWidth="200.0" />
 <!--      <Text fx:id="strEmail" layoutX="306.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" />-->
    </children>

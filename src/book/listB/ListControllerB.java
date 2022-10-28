@@ -30,12 +30,15 @@ public class ListControllerB implements Initializable{
     private boolean sortQty = true;
     public static ObservableList<Book> ls2 = FXCollections.observableArrayList();
 
+
     public ListView<Book> lv;
+
+
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-lv.setItems(ls2);
+        lv.setItems(ls2);
     }
     public ListControllerB() {
     }
@@ -51,6 +54,7 @@ lv.setItems(ls2);
                 throw new Exception("Enter Book want to edit");
             }
             EditController.editedBook = lv.getSelectionModel().getSelectedItem();
+
             Parent editBook = FXMLLoader.load((Objects.requireNonNull(getClass().getResource("../edit/EditBook.fxml"))));
             Scene se = new Scene(editBook, 800, 600);
             Main.rootStages.setScene(se);
@@ -93,11 +97,8 @@ lv.setItems(ls2);
 
     public void search(ActionEvent actionEvent) {
 
-      String filter= searchValue.getText();
-        if (filter==null || filter.length() ==0){
-            lv.setItems(ls2);
-        }else{
-        }
+      String filter_value = searchValue.getText().toLowerCase();
+
 
 
 
@@ -111,6 +112,7 @@ lv.setItems(ls2);
             }
             selectBook = lv.getSelectionModel().getSelectedItem();
             lv.getItems().remove(selectBook);
+
 
         }catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);

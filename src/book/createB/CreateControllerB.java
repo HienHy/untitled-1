@@ -19,7 +19,7 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class CreateControllerB implements Initializable {
-    public static Book editedBook;
+    
     public TextField txtCode;
     public TextField txtName;
     public TextField txtAuthor;

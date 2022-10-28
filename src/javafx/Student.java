@@ -6,12 +6,14 @@ public class Student {
     private String name;
     private String email;
     private Integer mark;
+    private String gender;
 
-    public Student(String name, String email, Integer mark, Integer index) {
+    public Student(String name, String email, Integer mark, Integer index,String gender) {
         this.name = name;
         this.email = email;
         this.mark = mark;
         this.index = index;
+        this.gender=gender;
     }
 
     public Integer getIndex() {
@@ -38,6 +40,14 @@ public class Student {
         this.email = email;
     }
 
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
     public Integer getMark() {
         return mark;
     }
@@ -48,6 +58,6 @@ public class Student {
 
     @Override
     public String toString() {
-        return this.getName()+"\n"+this.getMark();
+        return this.getName()+"\n"+this.getMark()+"\n"+this.gender;
     }
 }

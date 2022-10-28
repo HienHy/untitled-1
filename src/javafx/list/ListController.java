@@ -3,6 +3,7 @@ package javafx.list;
 import javafx.Contact;
 import javafx.Main;
 import javafx.Student;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.create.CreateController;
@@ -13,6 +14,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Orientation;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
 
 
@@ -52,10 +54,21 @@ public class ListController {
     }
 
     public void edit() throws IOException {
-        EditController.editedStudent = lv2.getSelectionModel().getSelectedItem();
-        Parent createForm = FXMLLoader.load((Objects.requireNonNull(getClass().getResource("../edit/Edit.fxml"))));
-        Scene sc = new Scene(createForm, 800, 600);
-        Main.rootStage.setScene(sc);
+        try {
+            if (lv2.getSelectionModel().getSelectedItem()==null){
+                throw new Exception("Enter student want to edit");
+            }
+            EditController.editedStudent = lv2.getSelectionModel().getSelectedItem();
+            Parent createForm = FXMLLoader.load((Objects.requireNonNull(getClass().getResource("../edit/Edit.fxml"))));
+            Scene sc = new Scene(createForm, 800, 600);
+            Main.rootStage.setScene(sc);
+        }catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error!!");
+            alert.setHeaderText(e.getMessage());
+            alert.show();
+        }
+
 
 
 

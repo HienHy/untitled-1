@@ -51,7 +51,7 @@ public class ListControllerB implements Initializable{
     public void edit(){
         try {
             if (lv.getSelectionModel().getSelectedItem() == null){
-                throw new Exception("Enter Book want to edit");
+                throw new Exception("Choice Book want to edit");
             }
             EditController.editedBook = lv.getSelectionModel().getSelectedItem();
 
@@ -108,7 +108,7 @@ public class ListControllerB implements Initializable{
     public void remove(ActionEvent actionEvent) {
         try {
             if (lv.getSelectionModel().getSelectedItem() == null){
-                throw new Exception("Enter Book want to edit");
+                throw new Exception("Choice Book want to remove");
             }
             selectBook = lv.getSelectionModel().getSelectedItem();
             lv.getItems().remove(selectBook);

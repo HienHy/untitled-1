@@ -1,20 +1,16 @@
 
 package javafx;
 
-public class Student {
-    private Integer index;
-    private String name;
-    private String email;
-    private Integer mark;
-    private String gender;
+import javafx.edit.EditController;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 
-    public Student(String name, String email, Integer mark, Integer index,String gender) {
-        this.name = name;
-        this.email = email;
-        this.mark = mark;
-        this.index = index;
-        this.gender=gender;
-    }
+import java.util.Objects;
+
+public class Student {
+    public Integer index;
 
     public Integer getIndex() {
         return index;
@@ -23,6 +19,43 @@ public class Student {
     public void setIndex(Integer index) {
         this.index = index;
     }
+
+    private String name;
+    private String email;
+    private Integer mark;
+    private String gender;
+    private Button edit;
+
+
+
+    public Student(String name, String email, Integer mark,Integer index, String gender) {
+        this.name = name;
+        this.email = email;
+        this.mark = mark;
+        this.gender=gender;
+        this.index = index;
+        this.edit = new Button("Edit");
+        this.edit.setOnAction(event -> {
+            try {
+                EditController.editedStudent = this;
+                Parent createForm = FXMLLoader.load((Objects.requireNonNull(getClass().getResource("/javafx/edit/Edit.fxml"))));
+                Scene sc = new Scene(createForm, 800, 600);
+                Main.rootStage.setScene(sc);
+
+            }catch (Exception e){
+
+            }
+
+        });
+    }
+    public Button getEdit() {
+        return edit;
+    }
+
+    public void setEdit(Button edit) {
+        this.edit = edit;
+    }
+
 
     public String getName() {
         return name;

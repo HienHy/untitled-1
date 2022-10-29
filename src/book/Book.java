@@ -1,5 +1,14 @@
 package book;
 
+import book.edit.EditController;
+import book.listB.ListControllerB;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+
+import java.util.Objects;
+
 public class Book {
     private Integer index;
 
@@ -18,6 +27,10 @@ public class Book {
     public String type;
     public Integer price;
     public Integer qty;
+    private Button edit;
+    private Button remove;
+
+
 
 
     public Book() {
@@ -31,13 +44,45 @@ public class Book {
         this.type = type;
         this.price = price;
         this.qty = qty;
+        this.edit = new Button("Edit");
+        this.edit.setOnAction(event -> {
+            try {
+                EditController.editedBook = this;
+                Parent editBook = FXMLLoader.load((Objects.requireNonNull(getClass().getResource("../book/edit/EditBook.fxml"))));
+                Scene se = new Scene(editBook, 800, 600);
+                Main.rootStages.setScene(se);
+
+            }catch (Exception e){
+
+            }
+        });
+        this.remove =new Button("Remove");
+        this.remove.setOnAction(event -> {
+            ListControllerB.ls2.remove(this);
+
+
+        });
 
     }
 
 
 
 
+    public Button getEdit() {
+        return edit;
+    }
 
+    public void setEdit(Button edit) {
+        this.edit = edit;
+    }
+
+    public Button getRemove() {
+        return remove;
+    }
+
+    public void setRemove(Button remove) {
+        this.remove = remove;
+    }
     public String getCode() {
         return code;
     }

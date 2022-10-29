@@ -14,8 +14,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Orientation;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ListView;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 
 import javax.annotation.Resources;
@@ -28,17 +28,28 @@ import java.util.Objects;
 
 
 public class ListController {
+    public TableView<Student> tbStudent;
+    public TableColumn<Student,String> cName;
+    public TableColumn<Student,String> cEmail;
+    public TableColumn<Student,Integer> cMark;
+    public TableColumn<Student,String> cGender;
+    public TableColumn<Student, Button> cAction;
     private boolean sortName =true;
     private boolean sortMark =true;
     public static ObservableList<Student> ls = FXCollections.observableArrayList();
 
-    public ListView<Student> lv2;
+
 
     @FXML
     protected void initialize() {
-        lv2.setItems(ls);
-    }
+        cName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        cEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+        cMark.setCellValueFactory(new PropertyValueFactory<>("mark"));
+        cGender.setCellValueFactory(new PropertyValueFactory<>("gender"));
+        cAction.setCellValueFactory(new PropertyValueFactory<>("edit"));
 
+        tbStudent.setItems(ls);
+    }
 
     public ListController() {
 
@@ -55,13 +66,10 @@ public class ListController {
 
     public void edit() throws IOException {
         try {
-            if (lv2.getSelectionModel().getSelectedItem()==null){
+            if (tbStudent.getSelectionModel().getSelectedItem()==null){
                 throw new Exception("Enter student want to edit");
             }
-            EditController.editedStudent = lv2.getSelectionModel().getSelectedItem();
-            Parent createForm = FXMLLoader.load((Objects.requireNonNull(getClass().getResource("../edit/Edit.fxml"))));
-            Scene sc = new Scene(createForm, 800, 600);
-            Main.rootStage.setScene(sc);
+
         }catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error!!");
@@ -82,7 +90,7 @@ public class ListController {
             }
         });
         sortName =!sortName;
-        lv2.refresh();
+        tbStudent.refresh();
     }
 
     public void sortByMark(ActionEvent actionEvent) {
@@ -93,6 +101,6 @@ public class ListController {
             }
         });
         sortMark =!sortMark;
-        lv2.refresh();
+        tbStudent.refresh();
     }
 }

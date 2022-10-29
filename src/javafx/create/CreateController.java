@@ -42,7 +42,7 @@ public class CreateController implements Initializable {
             txtEmail.getText();
             if (Integer.parseInt(txtMark.getText()) < 0 || Integer.parseInt(txtMark.getText()) > 10)
                 throw new Exception("Enter Mark 0 ->10");
-            ListController.ls.add(new Student(txtName.getText(), txtEmail.getText(), Integer.parseInt(txtMark.getText()), ListController.ls.size(),cbGender.getValue()));
+            ListController.ls.add(new Student(txtName.getText(), txtEmail.getText(), Integer.parseInt(txtMark.getText()),ListController.ls.size(),cbGender.getValue()));
             backToList();
 
 

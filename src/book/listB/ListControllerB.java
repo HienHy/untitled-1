@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 
 public class ListControllerB implements Initializable{
     public TableView<Book> tbBook;
-    public static Book selectBook;
+//    public static Book selectBook;
     public TextField searchValue;
     public TableColumn<Book,String> cId;
     public TableColumn<Book,String> cName;
@@ -34,8 +34,8 @@ public class ListControllerB implements Initializable{
     public TableColumn<Book,Button> cAction;
     public TableColumn<Book,Button> cActionR;
 
-    private boolean sortPrice = true;
-    private boolean sortQty = true;
+//    private boolean sortPrice = true;
+//    private boolean sortQty = true;
     public static ObservableList<Book> ls2 = FXCollections.observableArrayList();
 
 
@@ -70,49 +70,49 @@ public class ListControllerB implements Initializable{
         Scene sb = new Scene(createBook, 800, 600);
         Main.rootStages.setScene(sb);
     }
-    public void edit(){
-        try {
-            if (tbBook.getSelectionModel().getSelectedItem() == null){
-                throw new Exception("Choice Book want to edit");
-            }
-            EditController.editedBook = tbBook.getSelectionModel().getSelectedItem();
+//    public void edit(){
+//        try {
+//            if (tbBook.getSelectionModel().getSelectedItem() == null){
+//                throw new Exception("Choice Book want to edit");
+//            }
+//            EditController.editedBook = tbBook.getSelectionModel().getSelectedItem();
+//
+//            Parent editBook = FXMLLoader.load((Objects.requireNonNull(getClass().getResource("../edit/EditBook.fxml"))));
+//            Scene se = new Scene(editBook, 800, 600);
+//            Main.rootStages.setScene(se);
+//        }catch (Exception e) {
+//            Alert alert = new Alert(Alert.AlertType.ERROR);
+//            alert.setTitle("Error!!");
+//            alert.setHeaderText(e.getMessage());
+//            alert.show();
+//
+//        }
+//    }
 
-            Parent editBook = FXMLLoader.load((Objects.requireNonNull(getClass().getResource("../edit/EditBook.fxml"))));
-            Scene se = new Scene(editBook, 800, 600);
-            Main.rootStages.setScene(se);
-        }catch (Exception e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error!!");
-            alert.setHeaderText(e.getMessage());
-            alert.show();
-
-        }
-    }
 
 
+//    public void sortByPrice(ActionEvent actionEvent) {
+//        Collections.sort(ls2,new Comparator<Book>() {
+//            @Override
+//            public int compare(Book o1, Book o2) {
+//                return sortPrice ? o1.getPrice().compareTo(o2.getPrice()) : o2.getPrice().compareTo(o1.getPrice());
+//            }
+//        });
+//        sortPrice =!sortPrice;
+//        tbBook.refresh();
+//
+//    }
 
-    public void sortByPrice(ActionEvent actionEvent) {
-        Collections.sort(ls2,new Comparator<Book>() {
-            @Override
-            public int compare(Book o1, Book o2) {
-                return sortPrice ? o1.getPrice().compareTo(o2.getPrice()) : o2.getPrice().compareTo(o1.getPrice());
-            }
-        });
-        sortPrice =!sortPrice;
-        tbBook.refresh();
-
-    }
-
-    public void sortByQty(ActionEvent actionEvent) {
-        Collections.sort(ls2,new  Comparator<Book>() {
-            @Override
-            public int compare(Book o1, Book o2) {
-                return sortQty ? o1.getQty().compareTo(o2.getQty()) : o2.getQty().compareTo(o1.getQty());
-            }
-        });
-        sortQty =!sortQty;
-        tbBook.refresh();
-    }
+//    public void sortByQty(ActionEvent actionEvent) {
+//        Collections.sort(ls2,new  Comparator<Book>() {
+//            @Override
+//            public int compare(Book o1, Book o2) {
+//                return sortQty ? o1.getQty().compareTo(o2.getQty()) : o2.getQty().compareTo(o1.getQty());
+//            }
+//        });
+//        sortQty =!sortQty;
+//        tbBook.refresh();
+//    }
 
 
 
@@ -138,24 +138,24 @@ public class ListControllerB implements Initializable{
 
     }
 
-    public void remove(ActionEvent actionEvent) {
-        try {
-            if (tbBook.getSelectionModel().getSelectedItem() == null){
-                throw new Exception("Choice Book want to remove");
-            }
-            selectBook = tbBook.getSelectionModel().getSelectedItem();
-            tbBook.getItems().remove(selectBook);
-
-
-        }catch (Exception e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error!!");
-            alert.setHeaderText(e.getMessage());
-            alert.show();
-        }
-
-
-    }
+//    public void remove(ActionEvent actionEvent) {
+//        try {
+//            if (tbBook.getSelectionModel().getSelectedItem() == null){
+//                throw new Exception("Choice Book want to remove");
+//            }
+//            selectBook = tbBook.getSelectionModel().getSelectedItem();
+//            tbBook.getItems().remove(selectBook);
+//
+//
+//        }catch (Exception e) {
+//            Alert alert = new Alert(Alert.AlertType.ERROR);
+//            alert.setTitle("Error!!");
+//            alert.setHeaderText(e.getMessage());
+//            alert.show();
+//        }
+//
+//
+//    }
 
     public void backToList(ActionEvent actionEvent) throws IOException {
         Parent listScene = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../listB/ListBook.fxml")));

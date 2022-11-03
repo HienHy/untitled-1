@@ -17,6 +17,7 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
+import java.sql.*;
 
 public class CreateController implements Initializable {
 
@@ -37,12 +38,16 @@ public class CreateController implements Initializable {
 
     public void submit(ActionEvent actionEvent) {
         try {
-            txtName.getText();
-            txtMark.getText();
-            txtEmail.getText();
-            if (Integer.parseInt(txtMark.getText()) < 0 || Integer.parseInt(txtMark.getText()) > 10)
+            Integer p =  Integer.parseInt(txtMark.getText());
+
+            if (p < 0 ||p> 10)
                 throw new Exception("Enter Mark 0 ->10");
-            ListController.ls.add(new Student(txtName.getText(), txtEmail.getText(), Integer.parseInt(txtMark.getText()),ListController.ls.size(),cbGender.getValue()));
+            Student s = new Student(txtName.getText(), txtEmail.getText(),p,null,cbGender.getValue());
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = DriverManager.getConnection(ListController.connectionString,ListController.user,ListController.pwd);
+            Statement stt   =   conn.createStatement();
+            String sql_txt = "insert into student(name,email,mark,gender) values ('" +txtName.getText()+"','" +txtEmail.getText()+"'," + p +",'"+cbGender.getValue()+"')";
+            stt.executeUpdate(sql_txt);
             backToList();
 
 

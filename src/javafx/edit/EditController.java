@@ -16,14 +16,18 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
 import java.util.Objects;
 import java.util.ResourceBundle;
+
 
 public class EditController implements Initializable {
 
 
     public static Student editedStudent;
-    public static Book editedBook;
+
     public TextField txtName;
     public TextField txtEmail;
     public TextField txtMark;
@@ -41,12 +45,20 @@ public class EditController implements Initializable {
 
     public void submit(ActionEvent actionEvent) {
         try{
-            txtName.getText();
-            txtMark.getText();
-            txtEmail.getText();
-            if (Integer.parseInt(txtMark.getText()) < 0 || Integer.parseInt(txtMark.getText()) > 10)
+          Integer p = Integer.parseInt(txtMark.getText());
+            if (    p < 0 || p > 10)
                 throw new Exception("Enter Mark 0 ->10");
-            ListController.ls.set(editedStudent.getIndex(),new Student(txtName.getText(), txtEmail.getText(), Integer.parseInt(txtMark.getText()), editedStudent.getIndex(),cbGender.getValue()));
+
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = DriverManager.getConnection(ListController.connectionString,ListController.user,ListController.pwd);
+            Statement stt   =   conn.createStatement();
+            String sql_txt1 = "UPDATE student SET name = '"+txtName.getText()+"',Email = '"+txtEmail.getText()+"',mark = "+p+", gender ='"+cbGender.getValue()+"'  WHERE id ='"+ editedStudent.getId()+"'";
+
+
+
+
+
+            stt.executeUpdate(sql_txt1);
             backToList();
 
 

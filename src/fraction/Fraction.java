@@ -81,6 +81,14 @@ public class Fraction {
 
     }
 
+    @Override
+    public String toString() {
+        return "Fraction{" +
+                "tuSo=" +this.tuSo +
+                ", mauSo=" +this.mauSo +
+                '}';
+    }
+
     public Fraction mul(Fraction ps) {
        return new Fraction (getTuSo() * ps.getMauSo(),getMauSo() * ps.getTuSo());
     }

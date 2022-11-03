@@ -25,6 +25,7 @@ import java.sql.SQLOutput;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Objects;
+import java.sql.*;
 
 
 public class ListController {
@@ -34,9 +35,18 @@ public class ListController {
     public TableColumn<Student,Integer> cMark;
     public TableColumn<Student,String> cGender;
     public TableColumn<Student, Button> cAction;
+    public final static String connectionString = "jdbc:mysql://localhost:3306/t2204m";
+    public final static String user = "root";
+    public final static String pwd = "root";
+
+
+
+
+//Lay du lieu tu database
+
     private boolean sortName =true;
     private boolean sortMark =true;
-    public static ObservableList<Student> ls = FXCollections.observableArrayList();
+    public  ObservableList<Student> ls = FXCollections.observableArrayList();
 
 
 
@@ -47,6 +57,28 @@ public class ListController {
         cMark.setCellValueFactory(new PropertyValueFactory<>("mark"));
         cGender.setCellValueFactory(new PropertyValueFactory<>("gender"));
         cAction.setCellValueFactory(new PropertyValueFactory<>("edit"));
+
+        //lay data tu database cho vao list
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = DriverManager.getConnection(connectionString,user,pwd);
+            Statement stt   =   conn.createStatement();
+            String sql_txt = "select * from student";
+            ResultSet rs = stt.executeQuery(sql_txt);
+            while (rs.next()){
+                int id =rs.getInt("id");
+                String name = rs.getString("name");
+                String email = rs.getString("email");
+                int mark = rs.getInt("mark");
+                String gender = rs.getString("gender");
+                Student s = new Student(name,email,mark,id,gender);
+                ls.add(s);
+            }
+        }catch (Exception e){
+            System.out.println();
+
+        }
+
 
         tbStudent.setItems(ls);
     }

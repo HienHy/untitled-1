@@ -10,14 +10,14 @@ import javafx.scene.control.Button;
 import java.util.Objects;
 
 public class Student {
-    public Integer index;
+    private Integer id;
 
-    public Integer getIndex() {
-        return index;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIndex(Integer index) {
-        this.index = index;
+    public void setId(Integer index) {
+        this.id = index;
     }
 
     private String name;
@@ -28,12 +28,12 @@ public class Student {
 
 
 
-    public Student(String name, String email, Integer mark,Integer index, String gender) {
+    public Student(String name, String email, Integer mark,Integer id, String gender) {
         this.name = name;
         this.email = email;
         this.mark = mark;
         this.gender=gender;
-        this.index = index;
+        this.id = id;
         this.edit = new Button("Edit");
         this.edit.setOnAction(event -> {
             try {

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane fx:controller="exam2.Controller" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text layoutX="385.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Menu">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Button onAction="#CreateBook" layoutX="235.0" layoutY="106.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="345.0" text="Add book records">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Button onAction="#display" layoutX="235.0" layoutY="206.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="345.0" text="Display book records">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Button layoutX="300.0" layoutY="406.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="200.0" text="Exit">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+   </children>
+</Pane>

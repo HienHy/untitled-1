@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="exam2.create.CreateController">
+   <children>
+      <Button layoutX="14.0" layoutY="41.0" mnemonicParsing="false" onAction="#backToList" prefHeight="28.0" prefWidth="150.0" text="Back To Menu" />
+      <Text layoutX="355.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtCode" layoutX="110.0" layoutY="100.0" prefHeight="42.0" prefWidth="581.0" promptText="ID" />
+      <TextField fx:id="txtName" layoutX="110.0" layoutY="200.0" prefHeight="42.0" prefWidth="581.0" promptText="Name" />
+      <TextField fx:id="txtAuthor" layoutX="110.0" layoutY="300.0" prefHeight="42.0" prefWidth="581.0" promptText="Author" />
+      <TextField fx:id="txtPrice" layoutX="110.0" layoutY="400.0" prefHeight="42.0" prefWidth="581.0" promptText="Price" />
+      <Button layoutX="355.0" layoutY="500.0" mnemonicParsing="false" onAction="#save" prefHeight="42.0" prefWidth="133.0" text="Save" />
+   </children>
+</Pane>

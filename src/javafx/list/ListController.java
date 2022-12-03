@@ -38,8 +38,8 @@ public class ListController {
     public final static String connectionString = "jdbc:mysql://localhost:3306/t2204m";
     public final static String user = "root";
     public final static String pwd = "root";
-
-
+    public Button fxCreate;
+    public Button fxSort;
 
 
 //Lay du lieu tu database
@@ -57,6 +57,19 @@ public class ListController {
         cMark.setCellValueFactory(new PropertyValueFactory<>("mark"));
         cGender.setCellValueFactory(new PropertyValueFactory<>("gender"));
         cAction.setCellValueFactory(new PropertyValueFactory<>("edit"));
+
+
+
+        fxCreate.setText(Main._msg.getString("create"));
+        fxSort.setText(Main._msg.getString("sortName"));
+        cName.setText(Main._msg.getString("name"));
+        cEmail.setText(Main._msg.getString("email"));
+        cGender.setText(Main._msg.getString("gender"));
+        cAction.setText(Main._msg.getString("edit"));
+        cMark.setText(Main._msg.getString("mark"));
+        cMark.setText(Main._msg.getString("mark"));
+
+
 
         //lay data tu database cho vao list
         try {

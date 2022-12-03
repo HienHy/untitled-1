@@ -7,13 +7,18 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.util.Locale;
 import java.util.Objects;
+import java.util.ResourceBundle;
 
 public class Main extends Application {
     public static Stage rootStage;
+    public static ResourceBundle _msg =ResourceBundle.getBundle("i18n.messages");
 
 
     public static void main(String[] args) {
+        Locale.setDefault(new Locale("vi","VN"));
+        _msg =ResourceBundle.getBundle("i18n.messages");
         launch(args);
     }
 

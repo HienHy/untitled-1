@@ -73,8 +73,6 @@ public class StudentFormController {
             ls.sort(studentComparators);
         } else {
             ls.sort(studentComparators.reversed());
-
-
         }
         this.setMarkFlg();
     }

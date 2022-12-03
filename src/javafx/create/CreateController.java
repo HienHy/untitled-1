@@ -67,5 +67,6 @@ public class CreateController implements Initializable {
         genders.add("Khác");
         cbGender.setItems(genders);
 
+
     }
 }
